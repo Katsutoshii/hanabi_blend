@@ -1,0 +1,28 @@
+
+[package]
+categories = ["game", "bevy"]
+description = "Test"
+edition = "2021"
+exclude = ["assets/", "tools/", ".github/", "crates/"]
+keywords = ["game", "engine", "gamedev", "graphics", "bevy"]
+license = "MIT OR Apache-2.0"
+name = "hanabi_blend"
+readme = "README.md"
+repository = "https://github.com/Katsutoshii/hanabi_blend"
+rust-version = "1.76.0"
+version = "0.1.0"
+
+[dependencies]
+bevy = {version = "0.13.2", features = ["dynamic_linking"]}
+bevy-inspector-egui = "0.24.0"
+
+bevy_hanabi = {version = "0.10", default-features = false, features = ["3d"]}
+
+# Enable a small amount of optimization in debug mode
+[profile.dev]
+opt-level = 1
+
+# Enable max optimizations for dependencies, but not for our code:
+[profile.dev.package."*"]
+debug = false
+opt-level = 3
